@@ -13,4 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require pingrid
+
+$(document).ready(function() {
+  $('#pinBoot').pinterest_grid({
+    no_columns: 3,
+    padding_x: 10,
+    padding_y: 10,
+    margin_bottom: 50,
+    single_column_breakpoint: 700
+  });
+});

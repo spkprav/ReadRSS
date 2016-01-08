@@ -7,6 +7,7 @@ class FetchAll
     Site.all.to_a.each do |site|
       parser = SiteParser.new
       site_data = parser.fetch(site.url)
+      # puts "#{site.url} | #{site_data.entries.first.inspect} \n \n \n "
       site_data.entries.each do |entry|
         existing_site_data = SiteData.where(unique_id: entry.entry_id).first
         unless existing_site_data
@@ -19,7 +20,8 @@ class FetchAll
             content: entry.try(site.content_tag.to_sym),
             author: entry.author,
             published: entry.published,
-            unique_id: entry.entry_id
+            unique_id: entry.entry_id,
+            site_id: site.id
           )
         end
       end

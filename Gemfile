@@ -6,6 +6,8 @@ gem 'mongoid'
 gem 'thin'
 gem 'feedjira'
 gem 'awesome_print'
+gem 'twitter-bootstrap-rails'
+gem 'whenever', :require => false
 
 
 

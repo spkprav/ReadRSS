@@ -1,3 +1,18 @@
-<% @site_data.each do |data| %>
-  <div><%= link_to data.title, data.url %></div>
-<% end %>
+<section id="pinBoot">
+  <% @site_data.each do |data| %>
+    <article class="white-panel">
+      <div>
+        <% content = Nokogiri::HTML(data.content) %>
+        <img src="<%= content.css('img').map{ |i| i['src'] }.first %>" />
+      </div>
+      <h1><%= link_to data.title, data.url, { target: '_blank' } %></h1>
+      <p>
+        <% more_link = link_to('read more', data.url) %>
+        <%= truncate(content.xpath("//text()").to_s, length: 350, omission: "... ").html_safe %>
+      </p>
+      <div class="text-center">
+        <a href="<%= data.url%>" class="btn btn-default">Read more</a>
+      </div>
+    </article>
+  <% end %>
+</div>

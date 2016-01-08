@@ -7,8 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Hummming Feed</a>
+    </div>
+  </nav>
+  <section class="section section-padded">
+		<div class="container">
+      <%= yield %>
+    </div>
+  </section>
 </body>
 </html>
